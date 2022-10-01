@@ -1,0 +1,15 @@
+.landingPrices::-webkit-scrollbar{
+    display: none;
+}
+
+.gelato1{
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+    top:30px;
+    right: 30px;
+    filter:blur(10px);
+    filter:grayscale(100%);
+}

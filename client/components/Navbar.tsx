@@ -2,7 +2,7 @@ import { HomeOutline, CreditCard, ReceiptRefund, CreditCardOutline } from "heroi
 
 function Navbar() {
     return (
-        <div className={`w-full h-[50px] bg-[#050607] flex fixed`}>
+        <div className={`w-full h-[50px] bg-[#050607] flex fixed z-[5]`}>
             <div className={`w-1/3 h-full flex justify-start items-center cursor-pointer`}>
                 <img className={`w-[45px] h-[45px] rounded-full mx-3`} alt='' src='/icons/gelato.jpg' />
                 <h1 className={`text-white text-4xl font-bold`}>GelatoSwap</h1>
@@ -23,9 +23,9 @@ function Navbar() {
 
             </div>
             <div className={`w-1/3 h-full flex justify-end items-center`}>
-                <div className = {`w-[10rem] h-[85%] bg-[#1767cf] flex justify-around items-center mx-5 rounded-lg cursor-pointer`}>
+                <div className = {`w-[12rem] h-[80%] bg-[#1767cf] flex justify-around items-center mx-5 rounded-[5px] cursor-pointer`}>
                     <CreditCardOutline className = {`text-white h-[90%]`}/>
-                    <h1 className = {`text-white text-base font-light`}> Connect Wallet</h1>
+                    <h1 className = {`text-white text-base`}> Connect Wallet</h1>
                 </div>
             </div>
         </div>
