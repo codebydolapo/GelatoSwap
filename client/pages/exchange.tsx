@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Navbar from '../components/Navbar'
-import Login from '../components/Login'
+import Swap from '../components/Swap'
 
-const Home: NextPage = () => {
+const Exchange: NextPage = () => {
   return (
     <div className={`min-h-[100vh] md:h-[100vh] font-plex bg-[#0b0e11]`}>
       <Head>
@@ -12,11 +12,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.jpg" />
       </Head>
       <Navbar />
-      <Login />
+      <Swap />
     </div>
   )
 }
 
-export default Home
+export default Exchange
 
 

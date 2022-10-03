@@ -1,8 +1,8 @@
 function Login() {
     return (
-        <div className={`w-full h-full pt-[50px] flex justify-center`}>
-            <div className={`w-[70%] h-full flex`}>
-                <div className={`w-[60%] h-full flex items-center justify-center`}>
+        <div className={`w-full md:h-full pt-[50px] flex justify-center xs:h-full`}>
+            <div className={`md:w-[70%] h-full flex md:flex-row xs:flex-col justify-center items-center xs:w-[100vw]`}>
+                <div className={`md:w-[60%] h-full flex items-center justify-center md:px-0 xs:w-[95%] xs:px-2`}>
                     <div className={`w-full h-[30rem] flex flex-col items-center justify-center`}>
                         <div className={`w-full h-[3.5rem] flex flex-row justify-center items-center my-[2rem]`}>
                             <img className={`w-[45px] h-[45px] rounded-full mx-3`} alt='' src='/icons/gelato.jpg' />
@@ -26,8 +26,8 @@ function Login() {
                         </div>
                     </div>
                 </div>
-                <div className={`w-[40%] h-full flex justify-center items-center`}>
-                <img src='/images/barcode.png' className={`w-[85%] h-auto `} alt='' />
+                <div className={`md:w-[40%] h-full flex justify-center items-center md:my-0 xs:w-[95%] xs:my-3 `}>
+                    <img src='/images/barcode.png' className={`w-[85%] h-auto `} alt='' />
                 </div>
             </div>
         </div>
