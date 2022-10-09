@@ -1,0 +1,78 @@
+{
+  "contractName": "GelatoSwap",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/GelatoSwap.sol\":\"GelatoSwap\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/GelatoSwap.sol\":{\"keccak256\":\"0x8111bbd94922c40350a4ea8fb903b1d586957bc55976410d98b094e2d2268740\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://0ee0304f074df7e5771828d37a22e22179ef840100d062c4ac8d4692a51b4738\",\"dweb:/ipfs/QmQWF6T26rnmt2kSWH6qjvPShzfM2NRZABcA7hAzaXqeL1\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212209d7db576a6f9e7b77bde2bf0dcd85ebd90a2659e2f51896a264b4c677692682864736f6c63430008110033",
+  "deployedBytecode": "0x6080604052600080fdfea26469706673582212209d7db576a6f9e7b77bde2bf0dcd85ebd90a2659e2f51896a264b4c677692682864736f6c63430008110033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "71:25:4:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "71:25:4:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\r\n\r\npragma solidity >=0.4.22 <0.9.0;\r\n\r\ncontract GelatoSwap{\r\n\r\n}",
+  "sourcePath": "C:\\Users\\Admin\\Desktop\\gelatoswap\\server\\contracts\\GelatoSwap.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/GelatoSwap.sol",
+    "exportedSymbols": {
+      "GelatoSwap": [
+        713
+      ]
+    },
+    "id": 714,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 712,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "35:32:4"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "GelatoSwap",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 713,
+        "linearizedBaseContracts": [
+          713
+        ],
+        "name": "GelatoSwap",
+        "nameLocation": "80:10:4",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 714,
+        "src": "71:25:4",
+        "usedErrors": []
+      }
+    ],
+    "src": "35:61:4"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.10",
+  "updatedAt": "2022-10-09T22:29:40.466Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
