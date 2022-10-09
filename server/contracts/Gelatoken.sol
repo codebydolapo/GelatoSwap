@@ -8,6 +8,6 @@ contract Gelatoken is ERC20{
   address public owner;
 
   constructor() ERC20("Gelatoken", "GET") {
-    owner = msg.sender
+    
   }
 }
