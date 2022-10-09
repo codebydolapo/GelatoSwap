@@ -1,0 +1,78 @@
+{
+  "contractName": "EthSwap",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/EthSwap.sol\":\"EthSwap\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/EthSwap.sol\":{\"keccak256\":\"0x92adb0df784f1a58673adf87eb0c0060ccda9e31b761ecde336cd8bbda914632\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4bdc14a1aaa7ed2586d5ae383a6aad7f302e563ec5b2c6c26dad16f7179484a0\",\"dweb:/ipfs/QmXitQf68YVCLDqWTy6jumRbF5aUxe8Hq6ScXvYFdEWc5Y\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea264697066735822122047e4941aa1c0306d2cbc33b025239b8c5bc467db5457af7f38f35dbfaaba8fd364736f6c63430008110033",
+  "deployedBytecode": "0x6080604052600080fdfea264697066735822122047e4941aa1c0306d2cbc33b025239b8c5bc467db5457af7f38f35dbfaaba8fd364736f6c63430008110033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "71:22:4:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "71:22:4:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\r\n\r\npragma solidity >=0.4.22 <0.9.0;\r\n\r\ncontract EthSwap{\r\n\r\n}",
+  "sourcePath": "C:\\Users\\Admin\\Desktop\\gelatoswap\\server\\contracts\\EthSwap.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/EthSwap.sol",
+    "exportedSymbols": {
+      "EthSwap": [
+        713
+      ]
+    },
+    "id": 714,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 712,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "35:32:4"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "EthSwap",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 713,
+        "linearizedBaseContracts": [
+          713
+        ],
+        "name": "EthSwap",
+        "nameLocation": "80:7:4",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 714,
+        "src": "71:22:4",
+        "usedErrors": []
+      }
+    ],
+    "src": "35:58:4"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.10",
+  "updatedAt": "2022-10-08T09:01:34.234Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
