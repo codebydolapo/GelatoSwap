@@ -9,6 +9,6 @@ contract Gelatoken is ERC20{
 
   constructor() ERC20("Gelatoken", "GET") {
     deployer = msg.sender;
-    _mint(deployer, 1000000000);
+    _mint(deployer, 1000000000000000000000000);
   }
 }
