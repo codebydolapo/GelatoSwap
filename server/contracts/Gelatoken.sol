@@ -5,9 +5,10 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract Gelatoken is ERC20{
 
-  address public owner;
+  address public deployer;
 
   constructor() ERC20("Gelatoken", "GET") {
-    
+    deployer = msg.sender
+    _mint(deployer, 1000000000)
   }
 }
