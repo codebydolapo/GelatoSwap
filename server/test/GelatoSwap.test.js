@@ -10,8 +10,8 @@ contract("EthSwap", function (accounts) {
 
   let gelatoSwap, gelaToken
   before(async () => {
-    gelatoSwap = await GelatoSwap.new()
     gelaToken = await Gelatoken.new()
+    gelatoSwap = await GelatoSwap.new(gelaToken.address)
     await gelaToken.transfer(gelatoSwap.address, "1000000000")
   })
 

@@ -6,10 +6,10 @@ module.exports = async function(deployer){
     //fetching the token
     const gelaToken = await Gelatoken.deployed()
 
-    await deployer.deploy(GelatoSwap)
-    //fecthing the exchange contract
+    //deploying the exchange contract.
+    await deployer.deploy(GelatoSwap, gelaToken.address /*constructor argument*/)
+    //fetching the deployed exchange contract
     const gelatoSwap = await GelatoSwap.deployed()
-
     //transfer all tokens from deployer of gelatoken to EthSwap
     await gelaToken.transfer(gelatoSwap.address, "1000000000000000000000000")
 }
