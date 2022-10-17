@@ -6,10 +6,16 @@ import './Gelatoken.sol';
 
 contract GelatoSwap{
    
-   //creatig a new token variable
+   //creating a new token variable
     Gelatoken public GelaToken;
+    uint public rate = 100;
 
     constructor(Gelatoken _gelaToken){
         GelaToken = _gelaToken;
+    }
+
+    function buyTokens(uint256 amount) public payable {
+        uint amountToSend = msg.value * amount;
+        GelaToken.transfer(msg.sender, amountToSend);
     }
 }
