@@ -6,7 +6,7 @@ const Gelatoken = artifacts.require("Gelatoken")
  * Ethereum client
  * See docs: https://www.trufflesuite.com/docs/truffle/testing/writing-tests-in-javascript
  */
-contract("EthSwap", function (accounts) {
+contract("EthSwap", function ([deployer, investor]) {
 
   let gelatoSwap, gelaToken
   before(async () => {
@@ -24,6 +24,12 @@ contract("EthSwap", function (accounts) {
     it("should own all the tokens", async () => {
       const balance = await gelaToken.balanceOf(gelatoSwap.address)
       return assert.equal(balance.toString(), "1000000000")
+    })
+  })
+
+  describe("transfer should go through", ()=>{
+    it("should allow user to purchase tokens", async ()=>{
+      gelatoSwap.buyTokens({from: investor, value: "1000000000000000000"})
     })
   })
 
