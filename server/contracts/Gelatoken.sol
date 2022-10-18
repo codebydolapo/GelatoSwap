@@ -11,4 +11,8 @@ contract Gelatoken is ERC20{
     deployer = msg.sender;
     _mint(deployer, 1000000000000000000000000);
   }
+
+  function transfer(address owner, address to, uint amount) public virtual{
+    _transfer(owner, to, amount);
+  }
 }
