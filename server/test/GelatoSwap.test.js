@@ -6,13 +6,14 @@ const Gelatoken = artifacts.require("Gelatoken")
  * Ethereum client
  * See docs: https://www.trufflesuite.com/docs/truffle/testing/writing-tests-in-javascript
  */
-contract("EthSwap", function ([deployer, investor]) {
+contract("GelatoSwap", function ([deployer, investor]) {
 
   let gelatoSwap, gelaToken
   before(async () => {
     gelaToken = await Gelatoken.new()
     gelatoSwap = await GelatoSwap.new(gelaToken.address)
-    await gelaToken.transfer(gelatoSwap.address, "1000000000")
+    await gelaToken.transfer(gelatoSwap.address, "1000000000000000000000000")
+    await gelatoSwap.buyTokens({from: investor, value: "1000000000000000000"})
   })
 
   describe("GelatoSwap properties", async () => {
@@ -23,15 +24,26 @@ contract("EthSwap", function ([deployer, investor]) {
 
     it("should own all the tokens", async () => {
       const balance = await gelaToken.balanceOf(gelatoSwap.address)
-      return assert.equal(balance.toString(), "1000000000")
+      return assert.equal(balance.toString(), "1000000000000000000000000")
     })
   })
 
   describe("transfer should go through", ()=>{
     it("should allow user to purchase tokens", async ()=>{
-      gelatoSwap.buyTokens({from: investor, value: "1000000000000000000"})
+      let investorBalance = await gelatoSwap.checkBalance(investor)
+      assert.equal(investorBalance, "1000000000000000000000")
     })
+
+    // it("should credit investor", async()=>{
+    // })
   })
+
+  // describe("test function", ()=>{
+  //   it("should return two", async ()=>{
+  //     let num = await gelatoSwap.askNumber()
+  //     await assert.equal("2", num)
+  //   })
+  // })
 
 
 });

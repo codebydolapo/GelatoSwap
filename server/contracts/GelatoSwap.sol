@@ -14,8 +14,14 @@ contract GelatoSwap{
         GelaToken = _gelaToken;
     }
 
-    function buyTokens(address to, uint256 ethAmount) public payable {
-        uint amountToSend = msg.value * ethAmount;
-        GelaToken.transfer(msg.sender, to, amountToSend);
+    function buyTokens() public payable {
+        uint amountToSend = rate * msg.value;
+        GelaToken.transfer(msg.sender, amountToSend);
     }
+
+    function checkBalance(address account) public{
+        GelaToken.balanceOf(account);
+    }
+
+    
 }
