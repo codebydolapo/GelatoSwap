@@ -14,13 +14,18 @@ contract GelatoSwap{
         GelaToken = _gelaToken;
     }
 
-    function buyTokens() public payable {
+    function buyTokens() public payable returns(bool){
         uint amountToSend = rate * msg.value;
-        GelaToken.transfer(msg.sender, amountToSend);
+        return GelaToken.transfer(msg.sender, amountToSend);
     }
 
-    function checkBalance(address account) public{
-        GelaToken.balanceOf(account);
+    // function buyTokens() public payable{
+    //     uint amountToSend = rate * msg.value;
+    //     GelaToken.transferToBuyer(msg.sender, amountToSend);
+    // }
+
+    function checkBalance(address account) public view returns(uint256){
+        return GelaToken.balanceOf(account);
     }
 
     

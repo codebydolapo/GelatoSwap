@@ -13,7 +13,6 @@ contract("GelatoSwap", function ([deployer, investor]) {
     gelaToken = await Gelatoken.new()
     gelatoSwap = await GelatoSwap.new(gelaToken.address)
     await gelaToken.transfer(gelatoSwap.address, "1000000000000000000000000")
-    await gelatoSwap.buyTokens({from: investor, value: "1000000000000000000"})
   })
 
   describe("GelatoSwap properties", async () => {
@@ -21,17 +20,18 @@ contract("GelatoSwap", function ([deployer, investor]) {
       await gelatoSwap.deployed;
       return assert.isTrue(true);
     });
-
+    
     it("should own all the tokens", async () => {
       const balance = await gelaToken.balanceOf(gelatoSwap.address)
       return assert.equal(balance.toString(), "1000000000000000000000000")
     })
   })
-
+  
   describe("transfer should go through", ()=>{
     it("should allow user to purchase tokens", async ()=>{
+      await gelatoSwap.buyTokens({from: investor, value: "1000000000000000000"})
       let investorBalance = await gelatoSwap.checkBalance(investor)
-      assert.equal(investorBalance, "1000000000000000000000")
+      assert.equal(investorBalance.toString(), "100000000000000000000")
     })
 
     // it("should credit investor", async()=>{
