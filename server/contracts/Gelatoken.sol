@@ -12,7 +12,7 @@ contract Gelatoken is ERC20{
     _mint(deployer, 1000000000000000000000000);
   }
 
-  // function transferToBuyer(address to, uint amount)public returns(bool){
+  // function transferTokens()public returns(bool){
   //   return transfer(to, amount);
   // }
 
