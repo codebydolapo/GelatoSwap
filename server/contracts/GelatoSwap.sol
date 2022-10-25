@@ -3,12 +3,14 @@
 pragma solidity >=0.4.22 <0.9.0;
 
 import "./Gelatoken.sol";
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+//import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract GelatoSwap {
     //creating a new token variable
+    Gelatoken public gelaToken;
     // Gelatoken public GelaToken;
-    ERC20 public gelaToken;
+    //Gelatoken public gelaToken;
 
     uint public rate = 100;
 
@@ -19,10 +21,17 @@ contract GelatoSwap {
         uint rate
     );
 
+    event TokenSold(
+        address sender,
+        address recipient,
+        uint amountBought,
+        uint amountSent
+    );
+
     // constructor(Gelatoken _gelaToken){
-    constructor() {
+    constructor(Gelatoken _gelaToken) {
         //GelaToken = _gelaToken;
-        gelaToken = new Gelatoken();
+        gelaToken = _gelaToken;
     }
 
     function buyTokens() public payable {
@@ -31,7 +40,6 @@ contract GelatoSwap {
             gelaToken.balanceOf(address(this)) >= amountToSend,
             "Insufficient send balance"
         );
-        gelaToken.transfer(msg.sender, amountToSend);
 
         emit TokenPurchased(
             address(msg.sender),
@@ -39,6 +47,7 @@ contract GelatoSwap {
             amountToSend,
             rate
         );
+        gelaToken.transfer(msg.sender, amountToSend);
     }
 
     function checkBalance(address account) public view {
@@ -46,19 +55,22 @@ contract GelatoSwap {
         gelaToken.balanceOf(account);
     }
 
-    function sellTokens(uint _amount) public payable returns (bool) {
+    function sellTokens(uint _amount) public{
         //transferring ether to the customer when they pay in $GET
         uint etherAmountToSend = _amount / rate;
-        payable(msg.sender).transfer(etherAmountToSend);
 
-        //recieving $GET from the customer
-        // return GelaToken.transferFrom(payable(address(msg.sender)), payable(address(this)), _amount);
-        return
-            gelaToken.transferFrom(
-                payable(address(msg.sender)),
-                payable(address(this)),
-                _amount
-            );
+        gelaToken.transferFrom(
+            address(msg.sender),
+            address(this),
+            _amount
+        );
+        payable(msg.sender).transfer(etherAmountToSend);
+        emit TokenSold(
+            address(msg.sender),
+            address(this),
+            uint(_amount),
+            uint(etherAmountToSend)
+        );
     }
 }
 

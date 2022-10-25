@@ -10,9 +10,9 @@ contract("GelatoSwap", function ([deployer, investor]) {
 
   let gelatoSwap, gelaToken
   before(async () => {
-    gelaToken = await Gelatoken.new()
+    gelaToken = await Gelatoken.new("Gelatoken", "GET")
     // gelatoSwap = await GelatoSwap.new(gelaToken.address)
-    gelatoSwap = await GelatoSwap.new()
+    gelatoSwap = await GelatoSwap.new(gelaToken.address)
     await gelaToken.transfer(gelatoSwap.address, "1000000000000000000000000")
   })
 
@@ -27,14 +27,14 @@ contract("GelatoSwap", function ([deployer, investor]) {
     
     it("should own all the tokens", async () => {
       const balance = await gelaToken.balanceOf(gelatoSwap.address)
-      return assert.equal(balance.toString(), "1000000000000000000000000")
+      return await assert.equal(balance.toString(), "1000000000000000000000000")
     })
 
     it("should allow user to purchase tokens", async ()=>{
       let result = await gelatoSwap.buyTokens({from: investor, value: "1000000000000000000"})
-      // let investorBalance = await gelatoSwap.checkBalance(investor)
+      //let investorBalance = await gelatoSwap.checkBalance(investor)
       let investorBalance = await gelaToken.balanceOf(investor)
-      assert.equal(investorBalance.toString(), "100000000000000000000")
+      await assert.equal(investorBalance.toString(), "100000000000000000000")
       console.log(result.logs)
     })
   })
@@ -45,7 +45,8 @@ contract("GelatoSwap", function ([deployer, investor]) {
       let result = await gelatoSwap.sellTokens("1000000000000000000", {from: investor})
       // let investorBalance = await gelatoSwap.checkBalance(investor)
       let investorBalance = await gelaToken.balanceOf(investor)
-      assert.equal(investorBalance.toString(), "0")
+      //let gelatoSwapBalance = await gelaToken.balanceOf(gelatoSwap.address)
+      await assert.equal(investorBalance.toString(), "0")
       console.log(result.logs)
     })
     
@@ -53,3 +54,22 @@ contract("GelatoSwap", function ([deployer, investor]) {
   
  
 });
+
+
+// pragma solidity >=0.4.22 <0.9.0;
+
+// import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+// import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+// contract Gelatoken is IERC20, ERC20 {
+//     address public deployer;
+//     ERC20 public implementation;
+
+//     constructor() ERC20("Gelatoken", "GET") {
+//         deployer = msg.sender;
+//         _mint(deployer, 1000000000000000000000000);
+//         implementation = new ERC20
+//     }
+
+    
+// }

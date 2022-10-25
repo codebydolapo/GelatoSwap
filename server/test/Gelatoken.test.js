@@ -5,7 +5,7 @@ contract("Gelatoken", async (accounts) => {
 
     let gelaToken
     before(async () => {
-        gelaToken = await Gelatoken.new()
+        gelaToken = await Gelatoken.new("Gelatoken", "GET")
     })
 
     
