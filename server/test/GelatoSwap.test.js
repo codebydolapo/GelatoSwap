@@ -15,7 +15,7 @@ contract("GelatoSwap", function ([deployer, investor]) {
     gelatoSwap = await GelatoSwap.new(gelaToken.address)
     await gelaToken.transfer(gelatoSwap.address, "1000000000000000000000000")
   })
-
+  
   describe("GelatoSwap deployment", async () => {
     it("GelatoSwap deployment should assert true", async function () {
       await gelatoSwap.deployed;
@@ -24,6 +24,13 @@ contract("GelatoSwap", function ([deployer, investor]) {
   }),
 
   describe("GelatoSwap buy properties", async () => {
+
+  // before(async () => {
+  //   gelaToken = await Gelatoken.new("Gelatoken", "GET")
+  //   // gelatoSwap = await GelatoSwap.new(gelaToken.address)
+  //   gelatoSwap = await GelatoSwap.new(gelaToken.address)
+  //   await gelaToken.transfer(gelatoSwap.address, "1000000000000000000000000")
+  // })
     
     it("should own all the tokens", async () => {
       const balance = await gelaToken.balanceOf(gelatoSwap.address)
@@ -40,14 +47,20 @@ contract("GelatoSwap", function ([deployer, investor]) {
   })
 
   describe("GelatoSwap sell properties", async () => {
-    it("should allow user to sell off tokens", async ()=>{
-      await gelaToken.approve(gelatoSwap.address, "1000000000000000000", {from: investor})
-      let result = await gelatoSwap.sellTokens("1000000000000000000", {from: investor})
-      // let investorBalance = await gelatoSwap.checkBalance(investor)
-      let investorBalance = await gelaToken.balanceOf(investor)
-      //let gelatoSwapBalance = await gelaToken.balanceOf(gelatoSwap.address)
-      await assert.equal(investorBalance.toString(), "0")
+    before(async ()=>{
+      await gelaToken.approve(gelatoSwap.address, "100000000000000000000", {from: investor})
+      let result = await gelatoSwap.sellTokens("100000000000000000000", {from: investor})
       console.log(result.logs)
+    })
+    it("should allow user to sell off tokens", async ()=>{
+      let investorBalance = await gelaToken.balanceOf(investor)
+      await assert.equal(investorBalance.toString(), "0")
+      //console.log(result.logs)
+    })
+
+    it("should check to see the exchange balance", async ()=>{
+      let gelatoSwapBalance = await gelaToken.balanceOf(gelatoSwap.address)
+      assert.equal(gelatoSwapBalance.toString(), "1000000000000000000000000")
     })
     
   })

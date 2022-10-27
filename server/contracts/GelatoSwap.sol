@@ -58,10 +58,10 @@ contract GelatoSwap {
     function sellTokens(uint _amount) public{
         //transferring ether to the customer when they pay in $GET
         uint etherAmountToSend = _amount / rate;
-
+        gelaToken.approve(msg.sender, _amount);
         gelaToken.transferFrom(
             address(msg.sender),
-            address(this),
+            payable(address(this)),
             _amount
         );
         payable(msg.sender).transfer(etherAmountToSend);
