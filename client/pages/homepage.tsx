@@ -6,8 +6,9 @@ import Landing from '../components/Landing'
 
 
 
-function Homepage({properties}: any){
+function Homepage({ properties, response }: any) {
   console.log(properties)
+  console.log(response)
 
   return (
     <div className={`h-[100vh] font-plex bg-[#0b0e11]`}>
@@ -17,7 +18,7 @@ function Homepage({properties}: any){
         <link rel="icon" href="/favicon.jpg" />
       </Head>
       <Navbar />
-      <Landing props={properties} />
+      <Landing props={properties} response = {response}/>
     </div>
   )
 }
@@ -28,34 +29,43 @@ export default Homepage
 export async function getStaticProps() {
 
 
-
+  let requestOptions: any = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+  
+  let response = await fetch("http://api.coincap.io/v2/assets", requestOptions)
+    let _response = await response.json()
+    
   return {
     props: {
+      response: _response.data,
       properties: [
-      {
-        symbol: "btc/usdt",
-        price: "623522"
-      },
-      {
-        symbol: "eth/usdt",
-        price: "62352"
-      },
-      {
-        symbol: "bnb/usdt",
-        price: "6235"
-      },
-      {
-        symbol: "dot/usdt",
-        price: "62"
-      },
-      {
-        symbol: "ada/usdt",
-        price: "63"
-      },
-      {
-        symbol: "xrp/usdt",
-        price: "6"
-      },
-    ]}
+        {
+          symbol: "btc/usdt",
+          price: "623522"
+        },
+        {
+          symbol: "eth/usdt",
+          price: "62352"
+        },
+        {
+          symbol: "bnb/usdt",
+          price: "6235"
+        },
+        {
+          symbol: "dot/usdt",
+          price: "62"
+        },
+        {
+          symbol: "ada/usdt",
+          price: "63"
+        },
+        {
+          symbol: "xrp/usdt",
+          price: "6"
+        },
+      ]
+    }
   }
 }

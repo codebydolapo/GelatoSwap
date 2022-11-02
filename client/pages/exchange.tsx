@@ -3,7 +3,10 @@ import Head from 'next/head'
 import Navbar from '../components/Navbar'
 import Swap from '../components/Swap'
 
+
+
 const Exchange: NextPage = () => {
+
   return (
     <div className={`min-h-[100vh] md:h-[100vh] font-plex bg-[#0b0e11]`}>
       <Head>

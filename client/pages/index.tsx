@@ -3,7 +3,10 @@ import Head from 'next/head'
 import Navbar from '../components/Navbar'
 import Login from '../components/Login'
 
+
 const Home: NextPage = () => {
+
+  
   return (
     <div className={`min-h-[100vh] md:h-[100vh] font-plex bg-[#0b0e11]`}>
       <Head>
@@ -19,4 +22,7 @@ const Home: NextPage = () => {
 
 export default Home
 
+
+//2b49dd5b-4ab3-4fa5-849a-40794f5c6137 
+//coincap-api-key
 

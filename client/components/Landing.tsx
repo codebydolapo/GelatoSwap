@@ -7,7 +7,7 @@ interface Props {
     symbol: string
 }
 
-function Landing({props}: any) {
+function Landing({props, response }: any) {
     return (
         <div className={`w-full h-full pt-[50px] flex flex-col justify-center items-center relative z-[2]`}>
             <img className={`md:visible xs:hidden ${styles.gelato1}`} src='/icons/gelato.jpg' />
@@ -17,11 +17,12 @@ function Landing({props}: any) {
                 <button className={`w-[15rem] h-[2.5rem] bg-[#1767cf] text-white text-base rounded-[5px]`}>Buy Now!</button>
             </div>
             <div className={`w-full h-[40%] flex items-center overflow-x-scroll ${styles.landingPrices}`}>
-                {props.map(({ symbol, price }: {symbol: string, price: string}) => {
+                {response.map(({ id, symbol, priceUsd, changePercent24Hr }: {id: string, symbol: string, priceUsd: string, changePercent24Hr:string}) => {
                     return <LandingPrices
                         symbol={symbol}
-                        price={price}
-                        key={symbol}
+                        price={priceUsd}
+                        changePercent24Hr = {changePercent24Hr}
+                        key={id}
                     />
                 })}
             </div>
