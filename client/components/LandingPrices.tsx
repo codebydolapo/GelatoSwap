@@ -20,5 +20,5 @@ function LandingPrices({price, symbol, changePercent24Hr}: Props) {
         </div>
     )
 }
-
+//
 export default LandingPrices
